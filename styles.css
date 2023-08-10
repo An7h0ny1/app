@@ -1,0 +1,394 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Estilos para el marco del teléfono */
+.phone-frame {
+    background-color: #333;
+    border: 10px solid #444;
+    border-radius: 20px;
+    width: 375px; /* Ancho del iPhone 6/7/8 */
+    height: 667px; /* Altura del iPhone 6/7/8 */
+    margin: 50px auto;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.app-container {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.app-container {
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    flex: 1;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Estilos para la navegación inferior */
+.phone-frame {
+    position: relative;
+    max-width: 380px;
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el contenedor de los botones de navegación */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+
+
+/* Estilos para el contenido principal */
+#content {
+    max-height: calc(100vh - 180px);
+    padding: 20px; /* Añade espacio para el contenido dentro del marco */
+}
+/*#budget {
+    max-height: 300px; /* Cambia esta altura máxima según tus necesidades */
+    /*overflow-y: auto; /* Habilita el scroll vertical cuando el contenido excede la altura máxima 
+}*/
+.expense-list,
+.income-list {
+    max-height: calc(100vh - 180px); /* Ajusta la altura máxima para agregar scroll si es necesario */
+    overflow-y: auto; /* Agrega scroll solo cuando el contenido exceda el espacio */
+}
+
+
+.bottom-nav {
+    background-color: #2c3e50;
+    text-align: center;
+    padding: 10px;
+}
+
+.bottom-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Alineación uniforme de los botones */
+    align-items: center; /* Alinear verticalmente al centro */
+}
+
+.bottom-nav li {
+    display: flex; /* Mostrar los botones en línea */
+    flex-direction: column; /* Alinear el ícono y el texto verticalmente */
+    align-items: center; /* Alinear los elementos internos al centro */
+    cursor: pointer;
+    color: white;
+    flex: 1; /* Ocupar el espacio disponible uniformemente */
+}
+
+.bottom-nav li i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+
+/* Estilos para la pestaña de Ingresos */
+#incomeForm label,
+#incomeForm select,
+#incomeForm input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#incomeForm select,
+#incomeForm input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+#incomeForm.hidden {
+    display: none;
+}
+
+#incomeForm button {
+    margin-top: 10px;
+}
+
+.income-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.income-list li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.total {
+    font-size: 20px;
+    margin-top: 10px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 2;
+}
+
+
+
+/* Estilos para la pestaña de Gastos */
+#expenses {
+    display: none;
+}
+
+#expenses.active {
+    display: block;
+}
+
+.expense-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.expense-list li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.expense-list li i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #e74c3c;
+}
+
+.expense-list li span {
+    font-size: 18px;
+}
+#expenseForm label,
+#expenseForm select,
+#expenseForm input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#expenseForm select,
+#expenseForm input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.expense-list li span:nth-child(2) {
+    display: none;
+}
+#expenseForm.hidden {
+    display: none;
+}
+
+
+/* Estilos para los formularios de Gastos e Ingresos */
+#expenseForm,
+#incomeForm {
+    border: 2px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los botones de los formularios */
+#saveExpenseBtn,
+#saveIncomeBtn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#saveExpenseBtn:hover,
+#saveIncomeBtn:hover {
+    background-color: #2980b9;
+}
+
+/* Estilos para los campos de los formularios */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#budgetForm.hidden {
+    display: none;
+}
+
+/* Estilos generales */
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.scrollable-tab {
+    max-height: 300px; /* Ajusta la altura máxima según tus necesidades */
+    margin-right: -35px;
+    overflow-y: auto;
+}
+
+.scrollable-area {
+    max-height: 150px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* Estilos para el área de Metas de Ahorro */
+#goalName, #goalAmount {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+/* Estilos para el área de Seguimiento de Progreso */
+#progressAmount {
+    font-weight: bold;
+}
+
+/* Estilos para el área de Transacciones de Ahorro */
+#savingsTransactions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#savingsTransactions li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilos para el área de Presupuesto de Ahorro */
+#monthlySavings {
+    padding: 5px;
+    width: 100%;
+}
+
+/* Estilos para el área de Notificaciones */
+#notificationBtn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#notificationBtn:hover {
+    background-color: #2980b9;
+}
+
+/* Estilos para la barra de progreso */
+progress {
+    width: 100%;
+    height: 20px;
+}
+
+/* Estilos para el botón addGoalBtn */
+#addGoalBtn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#addGoalBtn:hover {
+    background-color: #2980b9;
+}
+/* Estilos para el botón */
+.button {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+.button i {
+    margin-right: 10px;
+}
+footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

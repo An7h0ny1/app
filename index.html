@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzas Personales App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="app-container">
+            <header>
+                <h1>Finanzas Personales App</h1>
+            </header>
+            <main>
+                <section id="content">
+                    <section id="expenses" class="tab-content scrollable-tab">
+                        <h2>Gastos</h2>
+                        <button id="addExpenseBtn" class="button"><i class="fas fa-plus"></i> Agregar Gasto</button>
+                        <form id="expenseForm" class="hidden">
+                            <label for="expenseCategory">Categoría del Gasto:</label>
+                            <select id="expenseCategory">
+                                <option value="Comida">Comida</option>
+                                <option value="Transporte">Transporte</option>
+                                <option value="Entretenimiento">Entretenimiento</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                            <label for="expenseAmount">Cantidad del Gasto:</label>
+                            <input type="number" id="expenseAmount">
+                            <label for="expenseDate">Fecha del Gasto:</label>
+                            <input type="date" id="expenseDate">
+                            <button id="saveExpenseBtn" class="button"><i class="fas fa-save"></i> Guardar</button>
+                        </form>
+                        <ul id="expenseList" class="expense-list">
+                            <!-- Aquí se mostrarán los gastos -->
+                        </ul>
+                        <div id="totalExpense" class="total">
+                            Total de Gastos: $0.00
+                        </div>
+                    </section>
+
+                    <section id="income" class="tab-content scrollable-tab">
+                        <h2>Ingresos</h2>
+                        <button id="addIncomeBtn" class="button"><i class="fas fa-plus"></i> Agregar Ingreso</button>
+                        <form id="incomeForm" class="hidden">
+                            <label for="incomeType">Tipo de Ingreso:</label>
+                            <select id="incomeType">
+                                <option value="Salario">Salario</option>
+                                <option value="Venta">Venta</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                            <label for="incomeAmount">Cantidad:</label>
+                            <input type="number" id="incomeAmount">
+                            <label for="incomeDate">Fecha:</label>
+                            <input type="date" id="incomeDate">
+                            <button id="saveIncomeBtn" class="button"><i class="fas fa-save"></i> Guardar</button>
+                        </form>
+                        <ul id="incomeList" class="income-list">
+                            <!-- Aquí se mostrarán los ingresos -->
+                        </ul>
+                        <div id="totalIncome" class="total">
+                            Total de Ingresos: $0.00
+                        </div>
+                    </section>
+
+                    <section id="budget" class="tab-content scrollable-tab">
+                        <h2>Presupuesto</h2>
+                        <button id="addBudgetBtn" class="button"><i class="fas fa-plus"></i> Agregar Categoría</button>
+                        <form id="budgetForm" class="hidden">
+                            <label for="budgetCategory">Categoría:</label>
+                            <select id="budgetCategory">
+                                <option value="Alimentos">Alimentos</option>
+                                <option value="Vivienda">Vivienda</option>
+                                <option value="Transporte">Transporte</option>
+                                <!-- Agrega más categorías aquí si es necesario -->
+                            </select>
+                            <label for="budgetAmount">Presupuesto:</label>
+                            <input type="number" id="budgetAmount">
+                            <button id="saveBudgetBtn" class="button"><i class="fas fa-save"></i> Guardar</button>
+                        </form>
+                        <ul id="budgetList" class="budget-list">
+                            <!-- Aquí se mostrarán los elementos del presupuesto -->
+                        </ul>
+                        <div id="totalBudget" class="total">
+                            Total de Presupuesto: $0.00
+                        </div>
+                    </section>       
+                    
+                    <section id="savings" class="tab-content scrollable-tab">
+                        <h2>Ahorro</h2>
+                        <div>
+                            <h3>Metas de Ahorro</h3>
+                            <input type="text" id="goalName" placeholder="Nombre del objetivo">
+                            <input type="number" id="goalAmount" placeholder="Cantidad deseada">
+                            <button id="addGoalBtn">Agregar Meta</button>
+                        </div>
+                        <div>
+                            <h3>Seguimiento de Progreso</h3>
+                            <p>Progreso: <span id="progressAmount">$0.00</span></p>
+                            <progress id="progressBar" max="100"></progress>
+                        </div>
+                        
+                        <div>
+                            <h3>Presupuesto de Ahorro</h3>
+                            <input type="number" id="monthlySavings" placeholder="Cantidad a ahorrar mensualmente">
+                        </div>
+                        <div class="scrollable-area">
+                            <h3>Transacciones de Ahorro</h3>
+                            <ul id="savingsTransactions"></ul>
+                        </div>
+                        <div>
+                            <h3>Notificaciones</h3>
+                            <button id="notificationBtn">Activar Notificaciones</button>
+                        </div>
+                    </section>
+                    
+                    <section id="home" class="tab-content scrollable-tab">
+                        <h2>Inicio</h2>
+                        <div id="summary" class="summary">
+                            <h3>Resumen</h3>
+                            <div class="summary-item">
+                                <div class="summary-label">Total de Gastos en el Home:</div>
+                                <div id="totalExpenseHome" class="total">$0.00</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Total de Ingresos en el Home:</div>
+                                <div id="totalIncomeHome" class="total">$0.00</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Presupuesto en el Home:</div>
+                                <div id="budgetHome" class="total">$0.00</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Ahorros en el Home:</div>
+                                <div id="totalSavingsHome" class="total">$0.00</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Resto de las secciones de pestañas -->
+                </section>
+            </main>
+            <nav class="bottom-nav">
+                <ul>
+                    <li class="tab" data-target="income">
+                        <i class="fas fa-money-bill"></i>
+                        Ingresos
+                    </li>
+                    <li class="tab" data-target="expenses">
+                        <i class="fas fa-shopping-cart"></i>
+                        Gastos
+                    </li>
+                    <li class="tab" data-target="home">
+                        <i class="fas fa-home"></i>
+                    </li>
+                    <li class="tab" data-target="budget">
+                        <i class="fas fa-dollar-sign"></i>
+                        Presupuesto
+                    </li>
+                    <li class="tab" data-target="savings">
+                        <i class="fas fa-piggy-bank"></i>
+                        Ahorro
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        
+        
+
+        
+
+    </script>
+</body>
+</html>
